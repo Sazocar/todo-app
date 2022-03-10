@@ -1,0 +1,25 @@
+.task-incompleted {
+    cursor: pointer;
+}
+
+li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    border: 4px;
+    height: 40px;
+    padding: 0px 10px;
+    border-radius: 8px;
+    cursor: default;
+}
+
+li:hover {
+    background-color: #50555c;
+}   
+
+.delete-button {
+    width: 20px;
+    cursor: pointer;
+    display: none;
+}
