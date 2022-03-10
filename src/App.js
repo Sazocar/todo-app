@@ -1,7 +1,8 @@
 import React from 'react';
 // import './App.css';
+import { Header } from './Header';
 import { TodoCounter } from './TodoCounter';
-import { TodoInput } from './TodoInput';
+import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
@@ -23,21 +24,21 @@ const todos = [
   {
     text: 'Ver Peaky Blinders',
     completed: false,
-  }
+  },
 ]
 
 const App = (props) => {
   return (
     <div className='app-container'>
+      <Header text="Todo-App"/>
       <TodoCounter />
-      <TodoInput>
-        <CreateTodoButton /> 
-      </TodoInput>
+      <TodoSearch />
       <TodoList >
         {todos.map(todo => (
           <TodoItem key={todo.text} text={todo.text} />
-        ))}
+          ))}
       </TodoList >
+      <CreateTodoButton /> 
     </div>
   );
 }

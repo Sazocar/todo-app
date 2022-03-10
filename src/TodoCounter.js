@@ -3,7 +3,7 @@ import "./styles/TodoCounter.css"
 
 const TodoCounter = () => {
     return (
-        <h2 className="TodoCounter">Has completado 2 de 3 todos</h2>
+        <h2 className="TodoCounter">You have completed 1 of 4 task.</h2>
     );
 };
 
