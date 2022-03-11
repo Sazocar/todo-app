@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 // import './App.css';
 import { Header } from './Header';
 import { TodoCounter } from './TodoCounter';
@@ -52,6 +52,14 @@ const App = () => {
     })
   }
 
+  const completeTodo = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
   return (
     <div className='app-container'>
       <Header text="Todo-App"/>
@@ -65,7 +73,11 @@ const App = () => {
       />
       <TodoList >
         {searchedTodos.map(todo => (
-          <TodoItem key={todo.text} todo={todo} />
+          <TodoItem
+            key={todo.text}
+            todo={todo}
+            onComplete={() => completeTodo(todo.text)} 
+          />
           ))}
       </TodoList >
       <CreateTodoButton /> 
