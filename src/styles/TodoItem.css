@@ -1,7 +1,7 @@
-.task-incompleted {
-    cursor: pointer;
-    width: 20px;
+p {
+    margin: 0;
 }
+
 
 li {
     display: grid;
@@ -26,3 +26,11 @@ li:hover {
     cursor: pointer;
     /* display: none; */
 }
+
+.task-completed {
+    text-decoration: line-through;
+}
+
+/* .task-incompleted {
+    text-decoration: none;
+} */

@@ -11,7 +11,7 @@ import { CreateTodoButton } from './CreateTodoButton';
 const todos = [
   {
     text: 'Ver curso',
-    completed: false,
+    completed: true,
   },
   {
     text: 'Tomar café',
@@ -19,7 +19,7 @@ const todos = [
   },
   {
     text: 'Ir al gym',
-    completed: false,
+    completed: true,
   },
   {
     text: 'Ver Peaky Blinders',
@@ -35,7 +35,7 @@ const App = (props) => {
       <TodoSearch />
       <TodoList >
         {todos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} />
+          <TodoItem key={todo.text} todo={todo} />
           ))}
       </TodoList >
       <CreateTodoButton /> 
