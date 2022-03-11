@@ -1,0 +1,39 @@
+p {
+    margin: 0;
+}
+
+
+li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    height: 40px;
+    padding: 0px 10px;
+    border-radius: 8px;
+    cursor: default;
+    font-size: 17px;
+    color: rgb(192, 192, 192);
+}
+
+li:hover {
+    background-color: #50555c;
+}   
+
+.task-completed {
+    text-decoration: line-through;
+}
+
+.task-incompleted {
+    text-decoration: none;
+}
+
+li img {
+    cursor: pointer;
+}
+
+.delete-button {
+    width: 20px;
+    cursor: pointer;
+    /* display: none; */
+}
