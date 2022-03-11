@@ -11,11 +11,11 @@ import { CreateTodoButton } from './CreateTodoButton';
 const defaultTodos = [
   {
     text: 'Ver curso',
-    completed: true,
+    completed: false,
   },
   {
     text: 'Tomar café',
-    completed: true,
+    completed: false,
   },
   {
     text: 'Ir al gym',
@@ -27,7 +27,7 @@ const defaultTodos = [
   },
   {
     text: 'Ver Euphoria',
-    completed: true,
+    completed: false,
   },
 ]
 
@@ -52,11 +52,27 @@ const App = () => {
     })
   }
 
-  const completeTodo = (text) => {
+  const findTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
-    
-    newTodos[todoIndex].completed = true;
+    return [todoIndex, newTodos];
+  };
+
+  const toggleTodos = (text) => {
+    const [todoIndex, newTodos] = findTodo(text);
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    setTodos(newTodos);
+  };
+
+  // const incompleteTodo = (text) => {
+  //   const [todoIndex, newTodos] = findTodo(text);
+  //   newTodos[todoIndex].completed = false;
+  //   setTodos(newTodos);
+  // };
+
+  const deleteTodo = (text) => {
+    const [todoIndex, newTodos] = findTodo(text);
+    newTodos.splice(todoIndex, 1);
     setTodos(newTodos);
   };
 
@@ -76,7 +92,9 @@ const App = () => {
           <TodoItem
             key={todo.text}
             todo={todo}
-            onComplete={() => completeTodo(todo.text)} 
+            onToggle={() => toggleTodos(todo.text)}
+            // onIncomplete={() => incompleteTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)} 
           />
           ))}
       </TodoList >
