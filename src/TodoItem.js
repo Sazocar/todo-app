@@ -5,13 +5,17 @@ const circle = 'https://img.icons8.com/ios-glyphs/30/26e07f/circled.png';
 const filledCircle = 'https://img.icons8.com/ios-glyphs/30/26e07f/checked--v1.png';
 
 const TodoItem = (props) => {
+    const openAlert = () => {
+        alert(`Completaste el todo ${props.todo.text}`);
+    }
+
     let taskCircle;
     let taskStatus;
     if (props.todo.completed == true) {
-        taskCircle = <img src={filledCircle}/>
+        taskCircle = <img src={filledCircle} />
         taskStatus = 'task-completed';
     } else {
-        taskCircle = <img src={circle}/>
+        taskCircle = <img src={circle} onClick={openAlert}/>
         taskStatus = 'task-incompleted';
     }
     return (

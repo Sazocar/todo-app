@@ -10,6 +10,14 @@
     height: 50px;
     border-radius: 50%;
     font-size: 30px;
+    font-weight: bold;
     background-color: rgb(255, 166, 0);
     cursor: pointer;
+
+    transform: rotate(0);
+    transition: .3s ease;
+}
+
+.input-button:hover {
+    transform: rotate(270deg);
 }
