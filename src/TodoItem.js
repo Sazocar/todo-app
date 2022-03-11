@@ -18,6 +18,9 @@ const TodoItem = (props) => {
         taskCircle = <img src={circle} onClick={openAlert}/>
         taskStatus = 'task-incompleted';
     }
+
+    
+
     return (
         <li>
             {taskCircle}

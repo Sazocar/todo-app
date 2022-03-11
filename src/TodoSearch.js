@@ -1,9 +1,11 @@
 import React from "react";
 import './styles/TodoSearch.css';
 
-const TodoSearch = (props) =>{
+const TodoSearch = ({ searchValue, setSearchValue }) =>{
+
     const onChangeValueChange = (event) => {
-        console.log(event);
+        console.log(event.target.value);
+        setSearchValue(event.target.value);
     };
 
     return (
