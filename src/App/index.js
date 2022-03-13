@@ -32,30 +32,57 @@ const defaultTodos = [
 ]
 
 const useLocalStorage = (itemName, initialValue) => {
+  const [error, setError] = React.useState(false);
+  const [ loading, setLoading ] = React.useState(true);
+  const [ item, setItem] = React.useState(initialValue);
 
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
-  
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, initialValue);
-    parsedItem = initialValue
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
+  React.useEffect(() => {
+     setTimeout(() => {
+      try {
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
+        
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, initialValue);
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+        }
 
-  const [ item, setItem] = React.useState(parsedItem);
+        setItem(parsedItem);
+        setLoading(false);
+      } catch (error) {
+        setError(true);
+      }
+    }, 3000);
+  });
 
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));    
-    setItem(newItem);
+
+    const saveItem = (newItem) => {
+      try {
+        localStorage.setItem(itemName, JSON.stringify(newItem));
+        setItem(newItem);
+      } catch (error) {
+        setError(true);
+      }
+    };
+
+  return {
+    item,
+    saveItem,
+    loading,
+    error,
   };
-
-  return [item, saveItem];
 };
 
 const App = () => {
 
-  const [ todos, saveTodos ] = useLocalStorage('TODOS_V1', '[]');
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
 
   const [ searchValue, setSearchValue] = React.useState('');
 
@@ -104,7 +131,11 @@ const App = () => {
         searchValue={searchValue}
         setSearchValue={setSearchValue}
       />
-      <TodoList >
+      <TodoList 
+        loading={loading}
+        error={error}
+        searchedTodos={searchedTodos}
+      >
         {searchedTodos.map(todo => (
           <TodoItem
             key={todo.text}
