@@ -7,38 +7,45 @@ import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
+import { Modal } from '../Modal';
 
 const AppUI = () => {
+    const { 
+        error,
+        loading,
+        searchedTodos,
+        toggleTodos,
+        deleteTodo,
+        openModal, 
+        setOpenModal,
+        } = React.useContext(TodoContext);
+
   return (
     <div className='app-container'>
         <Header text="Todo-App"/>
         <TodoCounter />
         <TodoSearch />
 
+        <TodoList>
+            { error && <p>There was an error loading your todo list.</p> }
+            { loading && <p>Loading your todo list...</p> }
+            { (!loading && !searchedTodos.length) && <p>Todo list is empty. Create your first todo!</p>}
 
-        <TodoContext.Consumer>
-            {({ error,
-                loading,
-                searchedTodos,
-                toggleTodos,
-                deleteTodo
-            }) => (
-                <TodoList>
-                    { error && <p>There was an error loading your todo list.</p> }
-                    { loading && <p>Loading your todo list...</p> }
-                    { (!loading && !searchedTodos.length) && <p>Todo list is empty. Create your first todo!</p>}
+            {searchedTodos.map(todo => (
+            <TodoItem
+                key={todo.text}
+                todo={todo}
+                onToggle={() => toggleTodos(todo.text)}
+                onDelete={() => deleteTodo(todo.text)} 
+            />
+            ))}
+        </TodoList >
 
-                    {searchedTodos.map(todo => (
-                    <TodoItem
-                        key={todo.text}
-                        todo={todo}
-                        onToggle={() => toggleTodos(todo.text)}
-                        onDelete={() => deleteTodo(todo.text)} 
-                    />
-                    ))}
-                </TodoList >
-            )}
-        </TodoContext.Consumer>
+        {openModal==true && (
+            <Modal>
+                <p>{searchedTodos[0]?.text}</p>
+            </Modal>
+        )}
 
         <CreateTodoButton /> 
     </div>

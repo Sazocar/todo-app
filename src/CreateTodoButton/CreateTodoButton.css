@@ -13,6 +13,7 @@
     font-weight: bold;
     background-color: rgb(255, 166, 0);
     cursor: pointer;
+    z-index: 1;
 
     transform: rotate(0);
     transition: .3s ease;
