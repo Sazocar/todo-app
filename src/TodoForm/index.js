@@ -15,18 +15,27 @@ const TodoForm = () => {
         setOpenModal(false);
     };
 
-    const AddTodoTask = (event) => {
+    const addTodoTask = (event) => {
         event.preventDefault();
         addTodos(todoValue);
         setOpenModal(false);
     };
 
+    const addTodoTaskEnter = (event) => {
+        if (event.key == 'Enter') {
+            addTodos(todoValue);
+            setOpenModal(false);
+        }
+    };
+
     return (
-        <form onSubmit={AddTodoTask}>
+        <form onSubmit={addTodoTask}>
             <label>Create a new Todo</label>
             <textarea 
                 value={todoValue}
                 onChange={onChangeValue}
+                onKeyDown={addTodoTaskEnter}
+                autoFocus
                 placeholder="Add your task..."
             />
 
@@ -34,6 +43,7 @@ const TodoForm = () => {
                 <button
                     type="button"
                     onClick={onCancel}
+                    
                 >
                     Cancel
                 </button>

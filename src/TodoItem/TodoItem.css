@@ -8,12 +8,13 @@ li {
     grid-template-columns: auto 1fr auto;
     gap: 12px;
     align-items: center;
-    height: 40px;
     padding: 0px 10px;
     border-radius: 8px;
     cursor: default;
     font-size: 17px;
     color: rgb(192, 192, 192);
+    /* margin: 4px 0px; */
+    padding: 6px;
 }
 
 li:hover {
