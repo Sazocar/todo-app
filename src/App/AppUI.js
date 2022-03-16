@@ -6,6 +6,7 @@ import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
+import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
 
@@ -43,11 +44,13 @@ const AppUI = () => {
 
         {openModal==true && (
             <Modal>
-                <p>{searchedTodos[0]?.text}</p>
+                <TodoForm />
             </Modal>
         )}
 
-        <CreateTodoButton /> 
+        <CreateTodoButton 
+            setOpenModal={setOpenModal}
+        /> 
     </div>
   );
 }

@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 220px;
+    background-color: aqua;
+}
+
+textarea {
+    resize: none;
+}
