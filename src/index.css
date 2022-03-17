@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #1289A7;
+  background: #1f1f1f;
 }
 
 #root {
@@ -19,7 +19,7 @@ body {
 
 .app-container {
   width: 500px;
-  background-color: #3c424a;
+  background-color: #1f1f1f;
   box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
   border-radius: 4px;
   font-family: 'Quattrocento Sans', sans-serif;
