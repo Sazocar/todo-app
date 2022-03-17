@@ -9,6 +9,7 @@ import { TodoItem } from '../TodoItem';
 import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
+import { ConfirmDelete } from '../ConfirmDelete';
 
 const AppUI = () => {
     const { 
@@ -19,6 +20,8 @@ const AppUI = () => {
         deleteTodo,
         openModal, 
         setOpenModal,
+        todoText,
+        openConfirmDialog,
         } = React.useContext(TodoContext);
 
   return (
@@ -43,9 +46,15 @@ const AppUI = () => {
         </TodoList >
 
         {openModal==true && (
-            <Modal>
+            <Modal id="modal">
                 <TodoForm />
             </Modal>
+        )}
+
+        {openConfirmDialog==true && (
+            <Modal id="confirmDialog">
+                <ConfirmDelete text={todoText}/>
+            </Modal> 
         )}
 
         <CreateTodoButton 

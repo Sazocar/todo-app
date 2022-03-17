@@ -49,6 +49,7 @@ const TodoForm = () => {
                 </button>
                 <button
                     type="submit"
+                    disabled={!todoValue.length}
                 >
                     Add
                 </button>

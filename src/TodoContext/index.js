@@ -13,6 +13,9 @@ const TodoProvider = (props) => {
 
   const [ searchValue, setSearchValue] = React.useState('');
   const [ openModal, setOpenModal ] = React.useState(false);
+  const [ openConfirmDialog, setOpenConfirmDialog ] = React.useState(false);
+
+  const [ todoText, setTodoText ] = React.useState('');
 
   const completedTodos = todos.filter(todo => todo.completed==true).length;
   const totalTodos = todos.length;
@@ -62,6 +65,7 @@ const TodoProvider = (props) => {
 
     return (
         <TodoContext.Provider value={{
+            todos,
             loading,
             error,
             totalTodos,
@@ -74,6 +78,10 @@ const TodoProvider = (props) => {
             deleteTodo,
             openModal,
             setOpenModal,
+            openConfirmDialog,
+            setOpenConfirmDialog,
+            todoText,
+            setTodoText
         }}>
             { props.children }
         </TodoContext.Provider>

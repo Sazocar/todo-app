@@ -4,21 +4,22 @@ import './ConfirmDelete.css'
 
 
 const ConfirmDelete = ({text}) => {
-    const { todos, setOpenModalToDelete, deleteTodo, getTodoIndex } = React.useContext(TodoContext);
+    const { searchedTodos, setOpenConfirmDialog, deleteTodo } = React.useContext(TodoContext);
+    const todoIndex = searchedTodos.findIndex(todo => todo.text === text);
 
     const onCancel = () => {
-        setOpenModalToDelete(false);
+        setOpenConfirmDialog(false);
     };
 
     const DeleteTodo = (event) => {
         event.preventDefault();
         deleteTodo(text);
-        setOpenModalToDelete(false);
-    }
+        setOpenConfirmDialog(false);
+    };
 
     return(
         <form className="form-toDelete" onSubmit={DeleteTodo}>
-            <h2>Are you sure you want to delete {text}?</h2>
+            <h2>Are you sure you want to delete {text} </h2>
             <section>
                 <button
                     type="submit"
@@ -37,3 +38,5 @@ const ConfirmDelete = ({text}) => {
 };
 
 export { ConfirmDelete };
+
+
