@@ -30,28 +30,29 @@ const TodoForm = () => {
 
     return (
         <form onSubmit={addTodoTask}>
-            <label>Create a new Todo</label>
             <textarea 
                 value={todoValue}
                 onChange={onChangeValue}
                 onKeyDown={addTodoTaskEnter}
                 autoFocus
-                placeholder="Add your task..."
+                placeholder="Task name"
             />
 
             <div className="buttons-container">
                 <button
+                    className="button button--primary"
+                    type="submit"
+                    disabled={!todoValue.length}
+                >
+                    Add task
+                </button>
+                <button
+                    className="button button--secondary"
                     type="button"
                     onClick={onCancel}
                     
                 >
                     Cancel
-                </button>
-                <button
-                    type="submit"
-                    disabled={!todoValue.length}
-                >
-                    Add
                 </button>
             </div>
         </form>
