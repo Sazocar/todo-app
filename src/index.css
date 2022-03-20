@@ -4,7 +4,7 @@
   font-family: 'Martel Sans', sans-serif;
   font-family: 'Quattrocento Sans', sans-serif; */
 
-html {
+html, body {
   max-width: 100%;
   overflow-x: hidden; 
 }
@@ -47,15 +47,21 @@ body {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 461px) {
   .app-container {
     width: 400px;
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 435px) {
   .app-container {
     width: 380px;
+  }
+}
+
+@media (max-width: 325px) {
+  .app-container {
+    width: 350px;
   }
 }
 

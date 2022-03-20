@@ -22,14 +22,51 @@
     margin-bottom: 12px;
 }
 
+@media (max-width: 690px) {
+    .form-toDelete {
+        width: 500px;
+    }
+}
+
 @media (max-width: 640px) {
     .form-toDelete {
         width: 400px;
     }
 }
 
+
+@media (max-width: 510px) {
+    .form-toDelete {
+        width: 350px;
+    }
+}
+
 @media (max-width: 460px) {
     .form-toDelete {
         width: 300px;
+    }
+}
+
+@media (max-width: 425px) {
+    .delete-text {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .form-toDelete {
+        width: 270px;
+    }
+    .delete-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 345px) {
+    .form-toDelete {
+        width: 230px;
+    }
+    .delete-text {
+        font-size: 13px;
     }
 }

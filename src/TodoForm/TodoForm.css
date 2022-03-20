@@ -52,8 +52,27 @@ textarea {
   cursor: default;
 }
 
-@media (max-width: 450px) {
+
+@media (max-width: 460px) {
+    form {
+      width: 390px;
+    }
+}
+
+@media (max-width: 460px) {
     form {
       width: 360px;
+    }
+}
+
+@media (max-width: 425px) {
+    form {
+      width: 300px;
+    }
+}
+
+@media (max-width: 320px) {
+    form {
+      width: 280px;
     }
 }

@@ -38,3 +38,9 @@ li img {
     cursor: pointer;
     /* display: none; */
 }
+
+@media (max-width: 425px) {
+    li p {
+        font-size: 15px;
+    }
+}

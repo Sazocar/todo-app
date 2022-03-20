@@ -22,9 +22,11 @@ const TodoForm = () => {
     };
 
     const addTodoTaskEnter = (event) => {
-        if (event.key == 'Enter') {
-            addTodos(todoValue);
-            setOpenModal(false);
+        if (todoValue.length > 0) {
+            if (event.key == 'Enter') {
+                addTodos(todoValue);
+                setOpenModal(false);
+            }
         }
     };
 
