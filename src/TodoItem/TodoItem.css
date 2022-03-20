@@ -18,8 +18,8 @@ li {
 }
 
 li:hover {
-    background-color: #50555c;
-}   
+    background-color: #272727;
+}
 
 .task-completed {
     text-decoration: line-through;
@@ -38,12 +38,11 @@ li img {
     cursor: pointer;
 }
 
-@media (max-width: 760px) {
-    li:hover {
+@media (max-width: 425px) {
+    li:hover, li:active{
         background-color: #1f1f1f;
     }
 }
-
 @media (max-width: 425px) {
     li p {
         font-size: 15px;
