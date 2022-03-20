@@ -3,7 +3,6 @@ form {
     flex-direction: column;
     width: 430px;
     background-color: #141414;
-    height: 120px;
     font-family: 'Istok Web', sans-serif;
     border-radius: 4px;
 }
@@ -26,6 +25,7 @@ textarea {
   width: 170px;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 12px;
 }
 
 .button {

@@ -1,5 +1,29 @@
 .form-toDelete {
+    width: 600px;
     font-family: 'Martel Sans', sans-serif;
-    
-    background-color: rgb(187, 171, 151);
+    font-weight: 200;
+    position: absolute;
+    padding: 20px;
+}
+
+.delete-text {
+    margin-top: 0px;
+    color: lightgray;
+    margin-bottom: 35px;
+}
+
+.buttons-container-delete {
+    width: 180px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+    .form-toDelete {
+        width: 400px;
+    }
 }

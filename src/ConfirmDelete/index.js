@@ -19,15 +19,17 @@ const ConfirmDelete = ({text}) => {
 
     return(
         <form className="form-toDelete" onSubmit={DeleteTodo}>
-            <h2>Are you sure you want to delete <b>{text}</b> </h2>
-            <section>
+            <p className="delete-text">Are you sure you want to delete <b>{text}</b>?</p>
+            <section className="buttons-container-delete">
                 <button
+                    className="button button--secondary"
                     type="button"
                     onClick={onCancel}
                 >
                     Cancel
                 </button>
                 <button
+                    className="button button--primary"
                     type="submit"
                 >
                     Delete

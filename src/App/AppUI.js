@@ -9,6 +9,7 @@ import { TodoItem } from '../TodoItem';
 import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
+import { ModalToDelete } from '../ModalToDelete';
 import { ConfirmDelete } from '../ConfirmDelete';
 
 const AppUI = () => {
@@ -52,9 +53,9 @@ const AppUI = () => {
         )}
 
         {openConfirmDialog==true && (
-            <Modal id="confirmDialog">
+            <ModalToDelete id="confirmDialog">
                 <ConfirmDelete text={todoText}/>
-            </Modal> 
+            </ModalToDelete> 
         )}
 
         <CreateTodoButton 
