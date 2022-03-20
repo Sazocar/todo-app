@@ -11,3 +11,9 @@ ul {
 p {
     color: white;
 }
+
+@media (max-width: 425px) {
+  p {
+    font-size: 15px;
+  }
+}

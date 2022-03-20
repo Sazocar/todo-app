@@ -4,15 +4,16 @@
   font-family: 'Martel Sans', sans-serif;
   font-family: 'Quattrocento Sans', sans-serif; */
 
+html {
+  max-width: 100%;
+  overflow-x: hidden; 
+}
+
 body {
-  margin: 0;
-  padding: 0;
   background: #1f1f1f;
 }
 
 #root {
-  margin: 60px 0px;
-  /* height: 100vh; */
   display: grid;
   place-content: center;
 }
@@ -23,6 +24,41 @@ body {
   box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
   border-radius: 4px;
   font-family: 'Quattrocento Sans', sans-serif;
-  padding: 12px 0px;
   position: relative;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+
+@media (max-width: 530px) {
+  .app-container {
+    width: 460px;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .app-container {
+    width: 420px;
+  }
+}
+
+@media (max-width: 450px) {
+  .app-container {
+    width: 400px;
+  }
+}
+
+@media (max-width: 425px) {
+  .app-container {
+    width: 380px;
+  }
+}
+
+@media (max-width: 405px) {
+  .app-container {
+    width: 340px;
+  }
+}
+

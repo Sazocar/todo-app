@@ -51,3 +51,9 @@ textarea {
   border: none;
   cursor: default;
 }
+
+@media (max-width: 450px) {
+    form {
+      width: 360px;
+    }
+}
