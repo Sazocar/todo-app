@@ -39,6 +39,12 @@ li img {
     /* display: none; */
 }
 
+@media (max-width: 760px) {
+    li:hover {
+    background-color: transparent;
+}
+}
+
 @media (max-width: 425px) {
     li p {
         font-size: 15px;
