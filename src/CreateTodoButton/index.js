@@ -8,12 +8,14 @@ const CreateTodoButton = ({setOpenModal}) => {
     };
 
     return (
-        <button
-            className="input-button"
-            onClick={changeModal}
-        >
-        +
-        </button>
+        <div className="button-container">
+            <button
+                className="input-button"
+                onClick={changeModal}
+            >
+            +
+            </button>
+        </div>
     );
 }
 

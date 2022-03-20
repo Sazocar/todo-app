@@ -19,6 +19,9 @@ body {
 }
 
 .app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 500px;
   background-color: #1f1f1f;
   box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
@@ -53,12 +56,6 @@ body {
 @media (max-width: 425px) {
   .app-container {
     width: 380px;
-  }
-}
-
-@media (max-width: 405px) {
-  .app-container {
-    width: 340px;
   }
 }
 

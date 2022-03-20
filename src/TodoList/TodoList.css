@@ -13,7 +13,7 @@ p {
 }
 
 @media (max-width: 425px) {
-  p {
+  section > ul > p {
     font-size: 15px;
   }
 }
