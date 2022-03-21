@@ -1,0 +1,28 @@
+.state-image-containter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.state-img{
+    width: 340px;
+    margin-top: -40px;
+}
+
+.subtitle {
+    color: darkgray;
+}
+
+.state-text {
+    font-size: 15px;
+    color: rgb(201, 201, 201);
+    margin-bottom: 8px;
+}
+
+
+@media (max-width: 440px) {
+    .state-img {
+        width: 300px;
+    }
+}

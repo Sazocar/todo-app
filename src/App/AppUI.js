@@ -12,6 +12,8 @@ import { Modal } from '../Modal';
 import { ModalToDelete } from '../ModalToDelete';
 import { ConfirmDelete } from '../ConfirmDelete';
 import { LoadingSkeleton } from '../LoadingSkeleton';
+import { AppState } from '../AppState';
+import emptyState from '../assets/empty-box.png'
 
 
 const AppUI = () => {
@@ -42,7 +44,7 @@ const AppUI = () => {
         <TodoList>
             { error && <p>There was an error loading your todo list.</p> }
             { loading && Array(totalTodos).fill(1).map((a, i) => <LoadingSkeleton key={i} />)}
-            { (!loading && !todos.length) && <p>Todo list is empty. Create your first todo!</p>}
+            { (!loading && !todos.length) && <AppState state="empty" path={emptyState} />}
             { (!loading && todos.length > 0 && !searchedTodos.length) && <p>No results for "{searchValue}"</p>}
 
             {showList==true && searchedTodos.map(todo => (

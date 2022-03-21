@@ -19,7 +19,7 @@ const TodoProvider = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
       setShowList(true);
-    },3000)
+    },100)
   }, []);
 
   const [ todoText, setTodoText ] = React.useState('');
