@@ -1,13 +1,18 @@
 import React from "react";
+import { TodoContext } from "../TodoContext";
 import './AppState.css'
 
 const AppState = ({state, path}) => {
+
+    const { searchValue } = React.useContext(TodoContext);
     let subtitle;
     let text;
 
     if (state === 'empty') {
         subtitle = 'Your todolist is Empty!'
         text = 'What task do you have in mind?';
+    } else if (state === 'notFound') {
+        text = `No results for "${searchValue}"`;
     }
 
     return(

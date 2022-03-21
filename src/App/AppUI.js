@@ -14,6 +14,7 @@ import { ConfirmDelete } from '../ConfirmDelete';
 import { LoadingSkeleton } from '../LoadingSkeleton';
 import { AppState } from '../AppState';
 import emptyState from '../assets/empty-box.png'
+import notFound from '../assets/pixeltrue-newsletter.png';
 
 
 const AppUI = () => {
@@ -45,7 +46,7 @@ const AppUI = () => {
             { error && <p>There was an error loading your todo list.</p> }
             { loading && Array(totalTodos).fill(1).map((a, i) => <LoadingSkeleton key={i} />)}
             { (!loading && !todos.length) && <AppState state="empty" path={emptyState} />}
-            { (!loading && todos.length > 0 && !searchedTodos.length) && <p>No results for "{searchValue}"</p>}
+            { (!loading && todos.length > 0 && !searchedTodos.length) && <AppState state="notFound" path={notFound} />}
 
             {showList==true && searchedTodos.map(todo => (
             <TodoItem
