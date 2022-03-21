@@ -14,6 +14,13 @@ const TodoProvider = (props) => {
   const [ searchValue, setSearchValue] = React.useState('');
   const [ openModal, setOpenModal ] = React.useState(false);
   const [ openConfirmDialog, setOpenConfirmDialog ] = React.useState(false);
+  const [ showList, setShowList ] = React.useState(false);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setShowList(true);
+    },3000)
+  }, []);
 
   const [ todoText, setTodoText ] = React.useState('');
 
@@ -81,7 +88,9 @@ const TodoProvider = (props) => {
             openConfirmDialog,
             setOpenConfirmDialog,
             todoText,
-            setTodoText
+            setTodoText,
+            showList,
+            setShowList,
         }}>
             { props.children }
         </TodoContext.Provider>

@@ -13,6 +13,7 @@ import { ModalToDelete } from '../ModalToDelete';
 import { ConfirmDelete } from '../ConfirmDelete';
 import { LoadingSkeleton } from '../LoadingSkeleton';
 
+
 const AppUI = () => {
     const {
         todos,
@@ -26,6 +27,9 @@ const AppUI = () => {
         setOpenModal,
         todoText,
         openConfirmDialog,
+        totalTodos,
+        showList,
+        setShowList
         } = React.useContext(TodoContext);
 
         
@@ -37,11 +41,11 @@ const AppUI = () => {
 
         <TodoList>
             { error && <p>There was an error loading your todo list.</p> }
-            { !error && loading && Array(5).fill(1).map((a, i) => <LoadingSkeleton key={i} />)}
+            { loading && Array(totalTodos).fill(1).map((a, i) => <LoadingSkeleton key={i} />)}
             { (!loading && !todos.length) && <p>Todo list is empty. Create your first todo!</p>}
             { (!loading && todos.length > 0 && !searchedTodos.length) && <p>No results for "{searchValue}"</p>}
 
-            {searchedTodos.map(todo => (
+            {showList==true && searchedTodos.map(todo => (
             <TodoItem
                 key={todo.text}
                 todo={todo}
