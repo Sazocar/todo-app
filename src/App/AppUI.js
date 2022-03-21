@@ -13,9 +13,11 @@ import { ModalToDelete } from '../ModalToDelete';
 import { ConfirmDelete } from '../ConfirmDelete';
 
 const AppUI = () => {
-    const { 
+    const {
+        todos,
         error,
         loading,
+        searchValue,
         searchedTodos,
         toggleTodos,
         deleteTodo,
@@ -33,8 +35,9 @@ const AppUI = () => {
 
         <TodoList>
             { error && <p>There was an error loading your todo list.</p> }
-            { loading && <p>Loading your todo list...</p> }
-            { (!loading && !searchedTodos.length) && <p>Todo list is empty. Create your first todo!</p>}
+            { !error && loading && <p>Loading your todo list...</p> }
+            { (!loading && !todos.length) && <p>Todo list is empty. Create your first todo!</p>}
+            { (!loading && todos.length > 0 && !searchedTodos.length) && <p>No results for "{searchValue}"</p>}
 
             {searchedTodos.map(todo => (
             <TodoItem
