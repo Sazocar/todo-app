@@ -1,10 +1,8 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './ConfirmDelete.css'
 
 
-const ConfirmDelete = ({text}) => {
-    const { searchedTodos, setOpenConfirmDialog, deleteTodo } = React.useContext(TodoContext);
+const ConfirmDelete = ({text, searchedTodos, setOpenConfirmDialog, deleteTodo}) => {
     const todoIndex = searchedTodos.findIndex(todo => todo.text === text);
 
     const onCancel = () => {

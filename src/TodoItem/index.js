@@ -1,15 +1,10 @@
 import React from "react";
-import { Modal } from "../Modal";
-import { TodoContext } from "../TodoContext";
-import { ConfirmDelete } from "../ConfirmDelete";
 import './TodoItem.css';
 
 const circle = 'https://img.icons8.com/ios-glyphs/30/26e07f/circled.png';
 const filledCircle = 'https://img.icons8.com/ios-glyphs/30/26e07f/checked--v1.png';
 
-const TodoItem = (props) => {
-
-    const { setOpenConfirmDialog, todoText, setTodoText } = React.useContext(TodoContext);
+const TodoItem = ({todo, onToggle, setOpenConfirmDialog, setTodoText}) => {
 
     const showConfirmDialog = (event) =>{
         setTodoText(event.target.previousSibling.textContent);
@@ -19,11 +14,11 @@ const TodoItem = (props) => {
     return (
         <li>
             <img 
-                src={props.todo.completed ? filledCircle : circle }
-                onClick={props.onToggle}
+                src={todo.completed ? filledCircle : circle }
+                onClick={onToggle}
             />
-            <p className={props.todo.completed ? 'task-completed' : 'task-incompleted'}>
-                {props.todo.text}
+            <p className={todo.completed ? 'task-completed' : 'task-incompleted'}>
+                {todo.text}
             </p>
             <img 
                 className="delete-button" 

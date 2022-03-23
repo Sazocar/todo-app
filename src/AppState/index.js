@@ -1,10 +1,8 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import './AppState.css'
 
-const AppState = ({state, path}) => {
+const AppState = ({state, path, searchValue}) => {
 
-    const { searchValue } = React.useContext(TodoContext);
     let subtitle;
     let text;
 
