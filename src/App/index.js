@@ -43,7 +43,7 @@ const App = () => {
         
   return (
     <div className='app-container'>
-        <TodoHeader>
+        <TodoHeader loading={loading}>
             <AppTitle text="Todo-App"/>
             <TodoCounter 
                 totalTodos={totalTodos}

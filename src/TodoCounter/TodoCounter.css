@@ -4,3 +4,7 @@
     cursor: default;
     color: rgb(189, 189, 189);
 }
+
+.TodoCounter--loading {
+    opacity: 25%;
+}

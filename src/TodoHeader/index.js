@@ -1,10 +1,10 @@
 import React from "react";
 
-const TodoHeader = ({ children }) => {
+const TodoHeader = ({ children, loading}) => {
   return (
-    <React.Fragment>
-      {children}
-    </React.Fragment>
+    <header>
+      {React.Children.toArray(children).map(child => React.cloneElement(child, {loading}))}
+    </header>
   );
 };
 

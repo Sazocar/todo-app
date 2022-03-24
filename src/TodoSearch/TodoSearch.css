@@ -29,3 +29,8 @@
 /* .input:focus {
     background-image:none;
 } */
+
+
+.input:disabled {
+    opacity: 25%;
+}
