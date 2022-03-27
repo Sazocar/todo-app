@@ -8,10 +8,6 @@ ul {
     list-style: none;
 }
 
-p {
-    color: white;
-}
-
 @media (max-width: 425px) {
   section > ul > p {
     font-size: 15px;

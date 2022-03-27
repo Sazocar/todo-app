@@ -12,7 +12,7 @@ li {
     border-radius: 8px;
     cursor: default;
     font-size: 17px;
-    color: rgb(192, 192, 192);
+    /* color: rgb(192, 192, 192); */
     /* margin: 4px 0px; */
     padding: 6px;
 
@@ -26,9 +26,9 @@ li {
     -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
-li:hover {
+/* li:hover {
     background-color: #272727;
-}
+} */
 
 .task-completed {
     text-decoration: line-through;

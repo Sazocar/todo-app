@@ -17,6 +17,10 @@ import { AppState } from '../AppState';
 import emptyState from '../assets/empty-box.png'
 import notFound from '../assets/pixeltrue-newsletter.png';
 
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../Theme';
+import { GlobalStyles } from '../GlobalStyles';
+
 
 const App = () => {
   const {
@@ -40,61 +44,70 @@ const App = () => {
         setTodoText
         } = useTodos();
 
+
+        const [ theme, setTheme ] = React.useState('light');
+        const themeToggler = () => {
+            theme === 'light' ? setTheme('dark') : setTheme('light');
+        };
+
         
   return (
-    <div className='app-container'>
-        <TodoHeader loading={loading}>
-            <AppTitle text="Todo-App"/>
-            <TodoCounter 
-                totalTodos={totalTodos}
-                completedTodos={completedTodos}
-            />
-            <TodoSearch
-                setSearchValue={setSearchValue}
-            />
-        </TodoHeader>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyles />
+            <div className='app-container'>
+                <TodoHeader loading={loading}>
+                    <AppTitle text="Todo-App"/>
+                    <TodoCounter 
+                        totalTodos={totalTodos}
+                        completedTodos={completedTodos}
+                    />
+                    <TodoSearch
+                        setSearchValue={setSearchValue}
+                    />
+                </TodoHeader>
 
-        <TodoList>
-            { error && <p>There was an error loading your todo list.</p> }
-            { loading && Array(totalTodos).fill(1).map((a, i) => <LoadingSkeleton key={i} />)}
-            { (!loading && !todos.length) && <AppState state="empty" path={emptyState} />}
-            { (!loading && todos.length > 0 && !searchedTodos.length) && <AppState state="notFound" path={notFound} searchValue={searchValue}/>}
+                <TodoList>
+                    { error && <p>There was an error loading your todo list.</p> }
+                    { loading && Array(totalTodos).fill(1).map((a, i) => <LoadingSkeleton key={i} />)}
+                    { (!loading && !todos.length) && <AppState state="empty" path={emptyState} />}
+                    { (!loading && todos.length > 0 && !searchedTodos.length) && <AppState state="notFound" path={notFound} searchValue={searchValue}/>}
 
-            {showList==true && searchedTodos.map(todo => (
-            <TodoItem
-                key={todo.text}
-                todo={todo}
-                onToggle={() => toggleTodos(todo.text)}
-                setOpenConfirmDialog={setOpenConfirmDialog}
-                setTodoText={setTodoText}
-            />
-            ))}
-        </TodoList >
+                    {showList==true && searchedTodos.map(todo => (
+                    <TodoItem
+                        key={todo.text}
+                        todo={todo}
+                        onToggle={() => toggleTodos(todo.text)}
+                        setOpenConfirmDialog={setOpenConfirmDialog}
+                        setTodoText={setTodoText}
+                    />
+                    ))}
+                </TodoList >
 
-        {openModal==true && (
-            <Modal id="modal">
-                <TodoForm
-                  addTodos={addTodos}
-                  setOpenModal={setOpenModal}
-                />
-            </Modal>
-        )}
+                {openModal==true && (
+                    <Modal id="modal">
+                        <TodoForm
+                        addTodos={addTodos}
+                        setOpenModal={setOpenModal}
+                        />
+                    </Modal>
+                )}
 
-        {openConfirmDialog==true && (
-            <ModalToDelete id="confirmDialog">
-                <ConfirmDelete
-                  text={todoText}
-                  searchedTodos={searchedTodos}
-                  setOpenConfirmDialog={setOpenConfirmDialog}
-                  deleteTodo={deleteTodo}
-                />
-            </ModalToDelete> 
-        )}
+                {openConfirmDialog==true && (
+                    <ModalToDelete id="confirmDialog">
+                        <ConfirmDelete
+                        text={todoText}
+                        searchedTodos={searchedTodos}
+                        setOpenConfirmDialog={setOpenConfirmDialog}
+                        deleteTodo={deleteTodo}
+                        />
+                    </ModalToDelete> 
+                )}
 
-        <CreateTodoButton 
-            setOpenModal={setOpenModal}
-        /> 
-    </div>
+                <CreateTodoButton 
+                    setOpenModal={setOpenModal}
+                /> 
+        </div>
+    </ThemeProvider>
   );
 }
 

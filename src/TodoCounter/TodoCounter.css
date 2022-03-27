@@ -2,7 +2,7 @@
     font-size: 20px;
     text-align: center;
     cursor: default;
-    color: rgb(189, 189, 189);
+    /* color: rgb(189, 189, 189); */
 }
 
 .TodoCounter--loading {
