@@ -20,6 +20,7 @@ import notFound from '../assets/pixeltrue-newsletter.png';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../Theme';
 import { GlobalStyles } from '../GlobalStyles';
+import ToggleSwitch from '../ToggleSwitch';
 
 
 const App = () => {
@@ -44,17 +45,14 @@ const App = () => {
         setTodoText
         } = useTodos();
 
-
-        const [ theme, setTheme ] = React.useState('dark');
-        const themeToggler = () => {
-            theme === 'light' ? setTheme('dark') : setTheme('light');
-        };
-
+				const [ theme, setTheme ] = React.useState('light');
         
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
+						<ToggleSwitch theme={theme} setTheme={setTheme}/>
             <div className='app-container'>
+							{/* <ToggleSwitch onClick={themeToggler}/> */}
                 <TodoHeader loading={loading}>
                     <AppTitle text="Todo-App"/>
                     <TodoCounter 
