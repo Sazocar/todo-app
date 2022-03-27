@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useTodos } from './useTodos';
+import { useDarkMode } from './useDarkMode';
 import { TodoHeader } from '../TodoHeader';
 import { AppTitle } from '../AppTitle';
 import { TodoCounter } from '../TodoCounter';
@@ -45,12 +46,12 @@ const App = () => {
         setTodoText
         } = useTodos();
 
-				const [ theme, setTheme ] = React.useState('light');
+				const [theme, themeToggler] = useDarkMode();
         
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
-						<ToggleSwitch theme={theme} setTheme={setTheme}/>
+						<ToggleSwitch theme={theme} onToggle={themeToggler}/>
             <div className='app-container'>
 							{/* <ToggleSwitch onClick={themeToggler}/> */}
                 <TodoHeader loading={loading}>
