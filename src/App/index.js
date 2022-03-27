@@ -45,7 +45,7 @@ const App = () => {
         } = useTodos();
 
 
-        const [ theme, setTheme ] = React.useState('light');
+        const [ theme, setTheme ] = React.useState('dark');
         const themeToggler = () => {
             theme === 'light' ? setTheme('dark') : setTheme('light');
         };

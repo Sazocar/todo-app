@@ -29,8 +29,9 @@ const TodoForm = ({ addTodos, setOpenModal }) => {
     };
 
     return (
-        <form onSubmit={addTodoTask}>
+        <form className="addTask-form" onSubmit={addTodoTask}>
             <textarea 
+								className="addTask-textarea"
                 value={todoValue}
                 onChange={onChangeValue}
                 onKeyDown={addTodoTaskEnter}

@@ -4,11 +4,11 @@
     font-weight: 200;
     position: relative;
     padding: 20px;
+		border-radius: 4px;
 }
 
 .delete-text {
     margin-top: 0px;
-    color: lightgray;
     margin-bottom: 35px;
 }
 

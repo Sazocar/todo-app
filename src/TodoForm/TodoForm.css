@@ -1,15 +1,13 @@
-form {
+.addTask-form {
     display: flex;
     flex-direction: column;
     width: 430px;
-    background-color: #141414;
     font-family: 'Istok Web', sans-serif;
     border-radius: 4px;
 }
 
 
 textarea {
-    color: white;
     resize: none;
     outline: none;
     padding: 6px;
@@ -17,7 +15,6 @@ textarea {
     border-radius: 3px;
     font-size: 15px;
     font-family: 'Quattrocento Sans', sans-serif;
-    background-color: #111111;
     border: none;
 }
 

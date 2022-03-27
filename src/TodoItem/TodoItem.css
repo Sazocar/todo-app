@@ -12,7 +12,6 @@ li {
     border-radius: 8px;
     cursor: default;
     font-size: 17px;
-    /* color: rgb(192, 192, 192); */
     /* margin: 4px 0px; */
     padding: 6px;
 
@@ -48,9 +47,9 @@ li img {
 }
 
 @media (max-width: 425px) {
-    li:hover, li:active{
+    /* li:hover, li:active{
         background-color: #1f1f1f;
-    }
+    } */
 
     li img {
         width: 24px;
