@@ -68,11 +68,15 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 505px) {
 
 	.themeMode-icon {
 		width: 20px;
-		right: 86px;
+		right: 65px;
+	}
+
+	.switch {
+		right: 0px;
 	}
 
 	.slider.round {
