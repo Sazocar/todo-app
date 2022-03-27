@@ -51,6 +51,10 @@ const GlobalStyles = createGlobalStyle`
 		color: ${({ theme }) => theme.text};
 	}
 
+	.task-completed {
+		text-decoration-color: ${({ theme }) => theme.text};
+	}
+
 `
 
 export { GlobalStyles };

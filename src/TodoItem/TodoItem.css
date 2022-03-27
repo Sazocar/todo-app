@@ -25,12 +25,9 @@ li {
     -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
-/* li:hover {
-    background-color: #272727;
-} */
-
 .task-completed {
     text-decoration: line-through;
+		text-decoration-color: inherit;
 }
 
 .task-incompleted {
