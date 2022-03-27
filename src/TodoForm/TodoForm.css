@@ -51,25 +51,25 @@ textarea {
 
 
 @media (max-width: 460px) {
-    form {
+    .addTask-form {
       width: 390px;
     }
 }
 
 @media (max-width: 460px) {
-    form {
+    .addTask-form {
       width: 360px;
     }
 }
 
 @media (max-width: 425px) {
-    form {
+    .addTask-form {
       width: 300px;
     }
 }
 
 @media (max-width: 320px) {
-    form {
+    .addTask-form {
       width: 280px;
     }
 }
