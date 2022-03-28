@@ -29,14 +29,14 @@ const TodoForm = ({ action, addTodos, setOpenModal, todoText }) => {
     };
 		
 		const editTask = () => {
-			console.log(action)
+			return null;
 		};
 
     return (
         <form className="addTask-form" onSubmit={action == 'addTask' ? addTodoTask : editTask}>
             <textarea 
 								className="addTask-textarea"
-                value={action == 'editTask' ? todoText : ''}
+                defaultValue={action == 'editTask' ? todoText : ''}
                 onChange={onChangeValue}
                 onKeyDown={addTodoTaskEnter}
                 autoFocus
