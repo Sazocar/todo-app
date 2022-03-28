@@ -1,10 +1,11 @@
 import React from "react";
 import './CreateTodoButton.css';
 
-const CreateTodoButton = ({setOpenModal}) => {
+const CreateTodoButton = ({setOpenModal, setAction}) => {
 
     const changeModal = () => {
         setOpenModal(prevState => !prevState);
+				setAction('addTask');
     };
 
     return (

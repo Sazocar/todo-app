@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoForm.css'
 
-const TodoForm = ({ addTodos, setOpenModal }) => {
+const TodoForm = ({ action, addTodos, setOpenModal, todoText }) => {
 
     const [ todoValue, setTodoValue ] = React.useState('');
 
@@ -27,15 +27,20 @@ const TodoForm = ({ addTodos, setOpenModal }) => {
             }
         }
     };
+		
+		const editTask = () => {
+			console.log(action)
+		};
 
     return (
-        <form className="addTask-form" onSubmit={addTodoTask}>
+        <form className="addTask-form" onSubmit={action == 'addTask' ? addTodoTask : editTask}>
             <textarea 
 								className="addTask-textarea"
-                value={todoValue}
+                value={action == 'editTask' ? todoText : ''}
                 onChange={onChangeValue}
                 onKeyDown={addTodoTaskEnter}
                 autoFocus
+								onFocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
                 placeholder="Task name"
             />
 
@@ -45,7 +50,7 @@ const TodoForm = ({ addTodos, setOpenModal }) => {
                     type="submit"
                     disabled={!todoValue.length}
                 >
-                    Add task
+                    {action == 'addTask' ? 'Add Task' : 'Save'}
                 </button>
                 <button
                     className="button button--secondary"

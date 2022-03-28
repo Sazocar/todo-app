@@ -46,6 +46,7 @@ const App = () => {
         setTodoText
         } = useTodos();
 
+				const [ action, setAction ] = React.useState('');
 				const [theme, themeToggler] = useDarkMode();
         
   return (
@@ -78,6 +79,9 @@ const App = () => {
                         onToggle={() => toggleTodos(todo.text)}
                         setOpenConfirmDialog={setOpenConfirmDialog}
                         setTodoText={setTodoText}
+												action={action}
+												setAction={setAction}
+												setOpenModal={setOpenModal}
                     />
                     ))}
                 </TodoList >
@@ -85,8 +89,10 @@ const App = () => {
                 {openModal==true && (
                     <Modal id="modal">
                         <TodoForm
-                        addTodos={addTodos}
-                        setOpenModal={setOpenModal}
+													action={action}
+													todoText={todoText}
+													addTodos={addTodos}
+													setOpenModal={setOpenModal}
                         />
                     </Modal>
                 )}
@@ -104,6 +110,7 @@ const App = () => {
 
                 <CreateTodoButton 
                     setOpenModal={setOpenModal}
+										setAction={setAction}
                 /> 
         </div>
     </ThemeProvider>
