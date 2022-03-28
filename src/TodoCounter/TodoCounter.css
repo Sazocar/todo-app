@@ -1,10 +1,9 @@
 .TodoCounter {
-    font-size: 20px;
-    text-align: center;
-    cursor: default;
-    /* color: rgb(189, 189, 189); */
+  font-size: 20px;
+  text-align: center;
+  cursor: default;
 }
 
 .TodoCounter--loading {
-    opacity: 25%;
+  opacity: 25%;
 }

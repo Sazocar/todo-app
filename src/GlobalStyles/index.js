@@ -1,5 +1,4 @@
-import { createGlobalStyle} from "styled-components";
-
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 	body {
@@ -55,6 +54,6 @@ const GlobalStyles = createGlobalStyle`
 		text-decoration-color: ${({ theme }) => theme.text};
 	}
 
-`
+`;
 
 export { GlobalStyles };

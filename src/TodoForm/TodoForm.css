@@ -1,21 +1,20 @@
 .addTask-form {
-    display: flex;
-    flex-direction: column;
-    width: 430px;
-    font-family: 'Istok Web', sans-serif;
-    border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  font-family: "Istok Web", sans-serif;
+  border-radius: 4px;
 }
 
-
 textarea {
-    resize: none;
-    outline: none;
-    padding: 6px;
-    margin: 12px;
-    border-radius: 3px;
-    font-size: 15px;
-    font-family: 'Quattrocento Sans', sans-serif;
-    border: none;
+  resize: none;
+  outline: none;
+  padding: 6px;
+  margin: 12px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: "Quattrocento Sans", sans-serif;
+  border: none;
 }
 
 .buttons-container {
@@ -49,27 +48,26 @@ textarea {
   cursor: default;
 }
 
-
 @media (max-width: 460px) {
-    .addTask-form {
-      width: 390px;
-    }
+  .addTask-form {
+    width: 390px;
+  }
 }
 
 @media (max-width: 460px) {
-    .addTask-form {
-      width: 360px;
-    }
+  .addTask-form {
+    width: 360px;
+  }
 }
 
 @media (max-width: 425px) {
-    .addTask-form {
-      width: 300px;
-    }
+  .addTask-form {
+    width: 300px;
+  }
 }
 
 @media (max-width: 320px) {
-    .addTask-form {
-      width: 280px;
-    }
+  .addTask-form {
+    width: 280px;
+  }
 }

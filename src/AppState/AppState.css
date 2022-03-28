@@ -1,28 +1,27 @@
 .state-image-containter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.state-img{
-    width: 400px;
-    margin-top: -40px;
+.state-img {
+  width: 400px;
+  margin-top: -40px;
 }
 
 .subtitle {
-    margin-top: 0;
-    font-size: 21px;
+  margin-top: 0;
+  font-size: 21px;
 }
 
 .state-text {
-    font-size: 17px;
-    margin-bottom: 8px;
+  font-size: 17px;
+  margin-bottom: 8px;
 }
 
-
 @media (max-width: 440px) {
-    .state-img {
-        width: 350px;
-    }
+  .state-img {
+    width: 350px;
+  }
 }

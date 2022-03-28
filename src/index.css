@@ -4,9 +4,10 @@
   font-family: 'Martel Sans', sans-serif;
   font-family: 'Quattrocento Sans', sans-serif; */
 
-html, body {
+html,
+body {
   max-width: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 #root {
@@ -20,7 +21,7 @@ html, body {
   justify-content: center;
   width: 500px;
   border-radius: 4px;
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: "Quattrocento Sans", sans-serif;
   position: relative;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -58,4 +59,3 @@ html, body {
     width: 350px;
   }
 }
-
