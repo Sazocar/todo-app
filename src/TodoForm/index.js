@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoForm.css'
 
-const TodoForm = ({ action, addTodos, setOpenModal, todoText }) => {
+const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText }) => {
 
     const [ todoValue, setTodoValue ] = React.useState('');
 
@@ -28,17 +28,28 @@ const TodoForm = ({ action, addTodos, setOpenModal, todoText }) => {
         }
     };
 		
-		const editTask = () => {
-			return null;
+		const editTask = (event) => {
+			event.preventDefault();
+			editTodo(todoText, todoValue);
+			setOpenModal(false);
 		};
 
+		const editTodoTaskEnter = (event) => {
+			if (todoValue.length > 0) {
+            if (event.key == 'Enter') {
+                editTodo(todoText, todoValue);
+								setOpenModal(false);
+            }
+        }
+		}
+
     return (
-        <form className="addTask-form" onSubmit={action == 'addTask' ? addTodoTask : editTask}>
+        <form className="addTask-form" onSubmit={action == 'editTask' ? editTask : addTodoTask }>
             <textarea 
 								className="addTask-textarea"
                 defaultValue={action == 'editTask' ? todoText : ''}
                 onChange={onChangeValue}
-                onKeyDown={addTodoTaskEnter}
+                onKeyDown={action == 'editTask' ? editTodoTaskEnter : addTodoTaskEnter}
                 autoFocus
 								onFocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
                 placeholder="Task name"

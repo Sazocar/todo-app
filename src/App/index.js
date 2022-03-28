@@ -35,6 +35,7 @@ const App = () => {
         setSearchValue,
         searchedTodos,
         addTodos,
+				editTodo,
         toggleTodos,
         deleteTodo,
         todoText,
@@ -91,6 +92,7 @@ const App = () => {
                         <TodoForm
 													action={action}
 													todoText={todoText}
+													editTodo={editTodo}
 													addTodos={addTodos}
 													setOpenModal={setOpenModal}
                         />

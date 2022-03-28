@@ -56,6 +56,12 @@ const useTodos = () => {
     saveTodos(newTodos);
   };
 
+	const editTodo = (text, newText) => {
+		const [todoIndex, newTodos] = findTodo(text);
+		newTodos[todoIndex].text = newText;
+		saveTodos(newTodos);
+	};
+
   const toggleTodos = (text) => {
     const [todoIndex, newTodos] = findTodo(text);
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
@@ -78,6 +84,7 @@ const useTodos = () => {
       setSearchValue,
       searchedTodos,
       addTodos,
+			editTodo,
       toggleTodos,
       deleteTodo,
       openModal,
