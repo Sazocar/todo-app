@@ -6,8 +6,8 @@ const AppState = ({ state, path, searchValue }) => {
   let text;
 
   if (state === "empty") {
-    subtitle = "Your todolist is Empty!";
-    text = "What task do you have in mind?";
+    subtitle = "Your todolist is empty!";
+    text = "What tasks do you have in mind?";
   } else if (state === "notFound") {
     text = `No results for "${searchValue}"`;
   }
