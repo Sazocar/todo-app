@@ -14,6 +14,10 @@
   cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
+	-webkit-padding-after: 1px;
+	-webkit-padding-before: 1px;
+	-webkit-border-radius: 50%;
+	-webkit-text-size-adjust: auto;
 }
 
 @media (max-width: 540px) {
