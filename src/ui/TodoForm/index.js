@@ -1,7 +1,7 @@
 import React from "react";
 import "./TodoForm.css";
 
-const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText }) => {
+const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText, todoID }) => {
   const [todoValue, setTodoValue] = React.useState("");
 
   const onChangeValue = (event) => {
@@ -29,14 +29,14 @@ const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText }) => {
 
   const editTask = (event) => {
     event.preventDefault();
-    editTodo(todoText, todoValue);
+    editTodo(todoID, todoValue);
     setOpenModal(false);
   };
 
   const editTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
       if (event.key == "Enter") {
-        editTodo(todoText, todoValue);
+        editTodo(todoID, todoValue);
         setOpenModal(false);
       }
     }

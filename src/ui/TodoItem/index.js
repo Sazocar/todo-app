@@ -5,8 +5,9 @@ const circle = "https://img.icons8.com/ios-glyphs/30/26e07f/circled.png";
 const filledCircle =
   "https://img.icons8.com/ios-glyphs/30/26e07f/checked--v1.png";
 
-const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setAction, setOpenModal }) => {
+const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setAction, setOpenModal, setTodoID }) => {
   const showConfirmDialog = (event) => {
+    setTodoID(todo.id);
     setTodoText(event.target.parentElement.children[1].textContent);
     setOpenConfirmDialog(true);
   };
@@ -14,6 +15,7 @@ const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setAction
   const showEditModal = (event) => {
     setOpenModal((prevState) => !prevState);
     setTodoText(event.target.previousSibling.textContent);
+    setTodoID(todo.id);
     setAction("editTask");
   };
 

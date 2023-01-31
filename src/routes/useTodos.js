@@ -7,7 +7,7 @@ const useTodos = () => {
     saveItem: saveTodos,
     loading,
     error,
-  } = useLocalStorage("TODOS_V1", []);
+  } = useLocalStorage("TODOS_V2", []);
 
   const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
@@ -21,6 +21,7 @@ const useTodos = () => {
   }, []);
 
   const [todoText, setTodoText] = React.useState("");
+  const [todoID, setTodoID] = React.useState();
 
   const completedTodos = todos.filter((todo) => todo.completed == true).length;
   const totalTodos = todos.length;
@@ -38,16 +39,18 @@ const useTodos = () => {
     });
   }
 
-  const findTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const findTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     return [todoIndex, newTodos];
   };
 
   const addTodos = (text) => {
+    const id = newTodoId();
     const newTodos = [...todos];
 
     const obj = {
+      id,
       text: text,
       completed: false,
     };
@@ -56,20 +59,21 @@ const useTodos = () => {
     saveTodos(newTodos);
   };
 
-  const editTodo = (text, newText) => {
-    const [todoIndex, newTodos] = findTodo(text);
+  const editTodo = (id, newText) => {
+    const [todoIndex, newTodos] = findTodo(id);
     newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   };
 
-  const toggleTodos = (text) => {
-    const [todoIndex, newTodos] = findTodo(text);
+  const toggleTodos = (id) => {
+    const [todoIndex, newTodos] = findTodo(id);
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
-    const [todoIndex, newTodos] = findTodo(text);
+  const deleteTodo = (id) => {
+    const [todoIndex, newTodos] = findTodo(id);
+    console.log(todoIndex);
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
@@ -92,10 +96,16 @@ const useTodos = () => {
     openConfirmDialog,
     setOpenConfirmDialog,
     todoText,
+    todoID,
+    setTodoID,
     setTodoText,
     showList,
     setShowList,
   };
+};
+
+const newTodoId = () => {
+  return Date.now().toString(16);
 };
 
 export { useTodos };

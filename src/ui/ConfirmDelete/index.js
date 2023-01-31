@@ -1,16 +1,20 @@
 import React from "react";
 import "./ConfirmDelete.css";
 
-const ConfirmDelete = ({ text, searchedTodos, setOpenConfirmDialog, deleteTodo}) => {
-  const todoIndex = searchedTodos.findIndex((todo) => todo.text === text);
-
+const ConfirmDelete = ({
+  text,
+  searchedTodos,
+  setOpenConfirmDialog,
+  deleteTodo,
+  todoID,
+}) => {
   const onCancel = () => {
     setOpenConfirmDialog(false);
   };
 
   const DeleteTodo = (event) => {
     event.preventDefault();
-    deleteTodo(text);
+    deleteTodo(todoID);
     setOpenConfirmDialog(false);
   };
 

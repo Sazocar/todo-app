@@ -39,6 +39,8 @@ const HomePage = () => {
     toggleTodos,
     deleteTodo,
     todoText,
+    todoID,
+    setTodoID,
     openModal,
     setOpenModal,
     openConfirmDialog,
@@ -88,12 +90,13 @@ const HomePage = () => {
           {showList == true &&
             searchedTodos.map((todo) => (
               <TodoItem
-                key={todo.text}
+                key={todo.id}
                 todo={todo}
-                onToggle={() => toggleTodos(todo.text)}
+                onToggle={() => toggleTodos(todo.id)}
                 setOpenConfirmDialog={setOpenConfirmDialog}
                 setTodoText={setTodoText}
                 setAction={setAction}
+                setTodoID={setTodoID}
                 setOpenModal={setOpenModal}
               />
             ))}
@@ -104,6 +107,7 @@ const HomePage = () => {
             <TodoForm
               action={action}
               todoText={todoText}
+              todoID={todoID}
               editTodo={editTodo}
               addTodos={addTodos}
               setOpenModal={setOpenModal}
@@ -114,6 +118,7 @@ const HomePage = () => {
         {openConfirmDialog == true && (
           <ModalToDelete id="confirmDialog">
             <ConfirmDelete
+              todoID={todoID}
               text={todoText}
               searchedTodos={searchedTodos}
               setOpenConfirmDialog={setOpenConfirmDialog}
