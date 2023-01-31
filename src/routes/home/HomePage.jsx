@@ -1,29 +1,30 @@
 import React from "react";
 
-import { useTodos } from "./useTodos";
-import { useDarkMode } from "./useDarkMode";
-import { TodoHeader } from "../TodoHeader";
-import { AppTitle } from "../AppTitle";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { TodoForm } from "../TodoForm";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from "../Modal";
-import { ModalToDelete } from "../ModalToDelete";
-import { ConfirmDelete } from "../ConfirmDelete";
-import { LoadingSkeleton } from "../LoadingSkeleton";
-import { AppState } from "../AppState";
-import emptyState from "../assets/empty-box.png";
-import notFound from "../assets/pixeltrue-newsletter.png";
+import { useTodos } from "../useTodos";
+import { useDarkMode } from "../useDarkMode";
+import { TodoHeader } from "../../ui/TodoHeader";
+import { AppTitle } from "../../ui/AppTitle";
+import { TodoCounter } from "../../ui/TodoCounter";
+import { TodoSearch } from "../../ui/TodoSearch";
+import { TodoList } from "../../ui/TodoList";
+import { TodoItem } from "../../ui/TodoItem";
+import { TodoForm } from "../../ui/TodoForm";
+import { CreateTodoButton } from "../../ui/CreateTodoButton";
+import { Modal } from "../../ui/Modal";
+import { ModalToDelete } from "../../ui/ModalToDelete";
+import { ConfirmDelete } from "../../ui/ConfirmDelete";
+import { LoadingSkeleton } from "../../ui/LoadingSkeleton";
+import { AppState } from "../../ui/AppState";
+import emptyState from "../../assets/empty-box.png";
+import notFound from "../../assets/pixeltrue-newsletter.png";
 
 import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "../Theme";
-import { GlobalStyles } from "../GlobalStyles";
-import ToggleSwitch from "../ToggleSwitch";
+import { lightTheme, darkTheme } from "../../ui/Theme";
+import { GlobalStyles } from "../../ui/GlobalStyles";
+import ToggleSwitch from "../../ui/ToggleSwitch";
 
-const App = () => {
+
+const HomePage = () => {
   const {
     error,
     loading,
@@ -98,7 +99,7 @@ const App = () => {
             ))}
         </TodoList>
 
-        {openModal == true && (
+        {openModal && (
           <Modal id="modal">
             <TodoForm
               action={action}
@@ -127,4 +128,4 @@ const App = () => {
   );
 };
 
-export default App;
+export { HomePage };
