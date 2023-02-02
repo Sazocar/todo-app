@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useTodos } from "../useTodos";
 import { useDarkMode } from "../useDarkMode";
@@ -25,6 +26,8 @@ import ToggleSwitch from "../../ui/ToggleSwitch";
 
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   const {
     error,
     loading,
@@ -49,12 +52,12 @@ const HomePage = () => {
     setTodoText,
   } = useTodos();
 
-  const [action, setAction] = React.useState("");
+  
   const [theme, themeToggler] = useDarkMode();
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyles />
+    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+      <GlobalStyles />   
 
       <ToggleSwitch theme={theme} onToggle={themeToggler} />
 
@@ -95,14 +98,13 @@ const HomePage = () => {
                 onToggle={() => toggleTodos(todo.id)}
                 setOpenConfirmDialog={setOpenConfirmDialog}
                 setTodoText={setTodoText}
-                setAction={setAction}
                 setTodoID={setTodoID}
                 setOpenModal={setOpenModal}
               />
             ))}
         </TodoList>
 
-        {openModal && (
+        {/* {openModal && (
           <Modal id="modal">
             <TodoForm
               action={action}
@@ -113,7 +115,7 @@ const HomePage = () => {
               setOpenModal={setOpenModal}
             />
           </Modal>
-        )}
+        )} */}
 
         {openConfirmDialog == true && (
           <ModalToDelete id="confirmDialog">
@@ -127,7 +129,9 @@ const HomePage = () => {
           </ModalToDelete>
         )}
 
-        <CreateTodoButton setOpenModal={setOpenModal} setAction={setAction} />
+        <CreateTodoButton 
+          goTo={() => navigate('/new')}
+        />
       </div>
     </ThemeProvider>
   );

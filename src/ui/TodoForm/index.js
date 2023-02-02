@@ -1,28 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./TodoForm.css";
 
-const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText, todoID }) => {
+
+const TodoForm = ({ action, addTodos, editTodo, todoText, todoID }) => {
   const [todoValue, setTodoValue] = React.useState("");
+  const navigate = useNavigate();
 
   const onChangeValue = (event) => {
     setTodoValue(event.target.value);
   };
 
-  const onCancel = () => {
-    setOpenModal(false);
-  };
-
   const addTodoTask = (event) => {
     event.preventDefault();
     addTodos(todoValue);
-    setOpenModal(false);
+    navigate("/");
   };
 
   const addTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
       if (event.key == "Enter") {
         addTodos(todoValue);
-        setOpenModal(false);
       }
     }
   };
@@ -30,14 +28,13 @@ const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText, todoID }
   const editTask = (event) => {
     event.preventDefault();
     editTodo(todoID, todoValue);
-    setOpenModal(false);
+    navigate("/");
   };
 
   const editTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
       if (event.key == "Enter") {
         editTodo(todoID, todoValue);
-        setOpenModal(false);
       }
     }
   };
@@ -73,7 +70,7 @@ const TodoForm = ({ action, addTodos, editTodo, setOpenModal, todoText, todoID }
         <button
           className="button button--secondary"
           type="button"
-          onClick={onCancel}
+          onClick={() => navigate('/')}
         >
           Cancel
         </button>

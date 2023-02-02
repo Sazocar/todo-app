@@ -1,12 +1,15 @@
 .addTask-form {
-  display: flex;
-  flex-direction: column;
-  width: 430px;
+  display: grid;
+  place-content: center;
+  height: 100vh;
   font-family: "Istok Web", sans-serif;
   border-radius: 4px;
+  width: 560px;
 }
 
 textarea {
+  width: inherit;
+  height: 100px;
   resize: none;
   outline: none;
   padding: 6px;
@@ -15,6 +18,7 @@ textarea {
   font-size: 15px;
   font-family: "Quattrocento Sans", sans-serif;
   border: none;
+  overflow-y: hidden;
 }
 
 .buttons-container {

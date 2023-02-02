@@ -8,11 +8,13 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  margin: 0;
 }
 
 #root {
   display: grid;
   place-content: center;
+  margin: 0;
 }
 
 .app-container {

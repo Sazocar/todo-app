@@ -11,7 +11,7 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  body: "#1f1f1f",
+  body: "#141414",
   text: "rgb(212, 212, 212)",
   toggleBorder: "#6B8096",
   background: "#1f1f1f",

@@ -61,7 +61,8 @@ const useTodos = () => {
 
   const editTodo = (id, newText) => {
     const [todoIndex, newTodos] = findTodo(id);
-    newTodos[todoIndex].text = newText;
+    // newTodos[todoIndex].text = newText;
+    console.log(newTodos[todoIndex]);
     saveTodos(newTodos);
   };
 
@@ -100,7 +101,6 @@ const useTodos = () => {
     setTodoID,
     setTodoText,
     showList,
-    setShowList,
   };
 };
 
