@@ -1,9 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./TodoForm.css";
 
 
-const TodoForm = ({ action, addTodos, editTodo, todoText, todoID }) => {
+const TodoForm = ({ action, todoID, textTodo, addTodos, editTodo }) => {
   const [todoValue, setTodoValue] = React.useState("");
   const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ const TodoForm = ({ action, addTodos, editTodo, todoText, todoID }) => {
     >
       <textarea
         className="addTask-textarea"
-        defaultValue={action == "editTask" ? todoText : ""}
+        defaultValue={action == "editTask" ? textTodo : ""}
         onChange={onChangeValue}
         onKeyDown={action == "editTask" ? editTodoTaskEnter : addTodoTaskEnter}
         autoFocus
@@ -70,7 +70,7 @@ const TodoForm = ({ action, addTodos, editTodo, todoText, todoID }) => {
         <button
           className="button button--secondary"
           type="button"
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
         >
           Cancel
         </button>

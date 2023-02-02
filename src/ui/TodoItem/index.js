@@ -6,7 +6,7 @@ const circle = "https://img.icons8.com/ios-glyphs/30/26e07f/circled.png";
 const filledCircle =
   "https://img.icons8.com/ios-glyphs/30/26e07f/checked--v1.png";
 
-const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setOpenModal, setTodoID }) => {
+const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setTodoID }) => {
 
   const navigate = useNavigate();
 
@@ -17,7 +17,6 @@ const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setOpenMo
   };
 
   const goToEditPage = (event) => {
-    // setOpenModal((prevState) => !prevState);
     setTodoText(event.target.previousSibling.textContent);
     setTodoID(todo.id);
     navigate(`/edit/${todo.id}`)

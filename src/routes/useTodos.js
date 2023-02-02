@@ -17,7 +17,7 @@ const useTodos = () => {
   React.useEffect(() => {
     setTimeout(() => {
       setShowList(true);
-    }, 2000);
+    }, 1000);
   }, []);
 
   const [todoText, setTodoText] = React.useState("");
@@ -61,10 +61,14 @@ const useTodos = () => {
 
   const editTodo = (id, newText) => {
     const [todoIndex, newTodos] = findTodo(id);
-    // newTodos[todoIndex].text = newText;
-    console.log(newTodos[todoIndex]);
+    newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   };
+
+  const getTodoText = (id) => {
+    const todoList = todos.filter((todo) => todo.id === id);
+    return todoList;
+  }
 
   const toggleTodos = (id) => {
     const [todoIndex, newTodos] = findTodo(id);
@@ -74,7 +78,6 @@ const useTodos = () => {
 
   const deleteTodo = (id) => {
     const [todoIndex, newTodos] = findTodo(id);
-    console.log(todoIndex);
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
@@ -101,6 +104,7 @@ const useTodos = () => {
     setTodoID,
     setTodoText,
     showList,
+    getTodoText,
   };
 };
 
