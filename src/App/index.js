@@ -44,6 +44,8 @@ const App = () => {
     showList,
     setOpenConfirmDialog,
     setTodoText,
+    todoID,
+    setTodoID,
   } = useTodos();
 
   const [action, setAction] = React.useState("");
@@ -87,12 +89,13 @@ const App = () => {
           {showList == true &&
             searchedTodos.map((todo) => (
               <TodoItem
-                key={todo.text}
+                key={todo.id}
                 todo={todo}
-                onToggle={() => toggleTodos(todo.text)}
+                onToggle={() => toggleTodos(todo.id)}
                 setOpenConfirmDialog={setOpenConfirmDialog}
                 setTodoText={setTodoText}
                 setAction={setAction}
+                setTodoID={setTodoID}
                 setOpenModal={setOpenModal}
               />
             ))}
@@ -102,6 +105,7 @@ const App = () => {
           <Modal id="modal">
             <TodoForm
               action={action}
+              todoID={todoID}
               todoText={todoText}
               editTodo={editTodo}
               addTodos={addTodos}
@@ -114,7 +118,7 @@ const App = () => {
           <ModalToDelete id="confirmDialog">
             <ConfirmDelete
               text={todoText}
-              searchedTodos={searchedTodos}
+              todoID={todoID}
               setOpenConfirmDialog={setOpenConfirmDialog}
               deleteTodo={deleteTodo}
             />
