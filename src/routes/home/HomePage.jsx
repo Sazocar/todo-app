@@ -130,7 +130,7 @@ const HomePage = () => {
         )}
 
         <CreateTodoButton 
-          goTo={() => navigate('/new')}
+          goTo={() => navigate('/new', { state: { theme }})}
         />
       </div>
     </ThemeProvider>

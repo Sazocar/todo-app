@@ -1,25 +1,24 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./TodoItem.css";
 
 const circle = "https://img.icons8.com/ios-glyphs/30/26e07f/circled.png";
 const filledCircle =
   "https://img.icons8.com/ios-glyphs/30/26e07f/checked--v1.png";
 
-const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setTodoID }) => {
-
+const TodoItem = ({
+  todo,
+  onToggle,
+  setOpenConfirmDialog,
+  setTodoText,
+  setTodoID,
+}) => {
   const navigate = useNavigate();
 
   const showConfirmDialog = (event) => {
     setTodoID(todo.id);
     setTodoText(event.target.parentElement.children[1].textContent);
     setOpenConfirmDialog(true);
-  };
-
-  const goToEditPage = (event) => {
-    setTodoText(event.target.previousSibling.textContent);
-    setTodoID(todo.id);
-    navigate(`/edit/${todo.id}`)
   };
 
   return (
@@ -31,7 +30,7 @@ const TodoItem = ({ todo, onToggle, setOpenConfirmDialog, setTodoText, setTodoID
       <img
         className="edit-button"
         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA8ElEQVRIie3SsU3EMBSA4f8FsgCreABgBkZAeRmA5kSDKSjoKCNHygIsEQbwLBSUKd5VueLiQ1bsBolXObHy/Ypl+OsjNZC+7x/N7Bm4EZHPZVmepmn6AbguxVXVm9nL+mxmXdu2AArQlAZSY2YP63p3oOu6W4AQggdez7a/iwKq6kVkVlWfiojI27q+2oMD65nfOeckxjjHGGfnnABfIYSPU6wAP42ZvY/jeEh9kx24hK/TNM39MAzz5n0NHPApHDL+IAcPIZzforxAKf5roAZ+MVALTwZq4ptAbRy217QqngpUxXMDu/GcQBH+P1lzBNLnbiYTMTYCAAAAAElFTkSuQmCC"
-        onClick={goToEditPage}
+        onClick={() => navigate(`/edit/${todo.id}`, { state: { todo }})}
       />
       <img
         className="delete-button"

@@ -5,15 +5,14 @@ import ToggleSwitch from "../../ui/ToggleSwitch";
 import { lightTheme, darkTheme } from "../../ui/Theme";
 import { useTodos } from "../useTodos";
 import { useDarkMode } from "../useDarkMode";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const NewTodoPage = () => {
   const { editTodo, addTodos, getTodoText } = useTodos();
 
   const [theme, themeToggler] = useDarkMode();
   const location = useLocation();
-  const todoID = parseInt(location.pathname.split("/")[2]);
-  const textTodo = getTodoText(todoID).text;
+  const { text } = useParams();
 
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
@@ -21,8 +20,8 @@ const NewTodoPage = () => {
       <ToggleSwitch theme={theme} onToggle={themeToggler} />
       <TodoForm
         action="addTask"
-        todoID={todoID}
-        textTodo={textTodo}
+        todoID={text}
+        textTodo={location.state}
         editTodo={editTodo}
         addTodos={addTodos}
       />

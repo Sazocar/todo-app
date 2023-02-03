@@ -67,7 +67,7 @@ const useTodos = () => {
 
   const getTodoText = (id) => {
     const todoList = todos.filter((todo) => todo.id === id);
-    return todoList;
+    return todoList[0].text;
   }
 
   const toggleTodos = (id) => {

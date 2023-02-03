@@ -5,29 +5,38 @@ import ToggleSwitch from "../../ui/ToggleSwitch";
 import { lightTheme, darkTheme } from "../../ui/Theme";
 import { useTodos } from "../useTodos";
 import { useDarkMode } from "../useDarkMode";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const EditTodoPage = () => {
-  const { editTodo, addTodos, getTodoText } = useTodos();
-
+  const { loading, editTodo, addTodos, getTodoText } = useTodos();
   const [theme, themeToggler] = useDarkMode();
+  const { text } = useParams();
   const location = useLocation();
-  const todoID = location.pathname.split("/")[2];
-  const textTodo = getTodoText(todoID).text;
 
+  let todoText;
+    
+  if (location.state?.todo) {
+    todoText = location.state.todo.text;
+    console.log(location);
+  } else if (loading) {
+    return <p>Loading...</p>
+  } else {
+    todoText = getTodoText(text);
+  }    
 
   return (
-    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
-      <GlobalStyles />
-      <ToggleSwitch theme={theme} onToggle={themeToggler} />
-      <TodoForm
-        action="editTask"
-        todoID={todoID}
-        textTodo={textTodo}
-        editTodo={editTodo}
-        addTodos={addTodos}
-      />
-    </ThemeProvider>
-  );
+      <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+        <GlobalStyles />
+        <ToggleSwitch theme={theme} onToggle={themeToggler} />
+        <TodoForm
+          action="editTask"
+          todoID={text}
+          textTodo={todoText}
+          editTodo={editTodo}
+          addTodos={addTodos}
+        />
+      </ThemeProvider>
+    );
+  
 };
 export { EditTodoPage };
