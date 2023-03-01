@@ -20,7 +20,7 @@ const TodoForm = ({ action, todoID, addTodos, editTodo, setOpenModal, todoText }
 
   const addTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
-      if (event.key == "Enter") {
+      if (event.key === "Enter") {
         addTodos(todoValue);
         setOpenModal(false);
       }

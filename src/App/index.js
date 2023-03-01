@@ -1,27 +1,28 @@
-import React from "react";
+import React from 'react'
 
-import { useTodos } from "./useTodos";
-import { useDarkMode } from "./useDarkMode";
-import { TodoHeader } from "../TodoHeader";
-import { AppTitle } from "../AppTitle";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { TodoForm } from "../TodoForm";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from "../Modal";
-import { ModalToDelete } from "../ModalToDelete";
-import { ConfirmDelete } from "../ConfirmDelete";
-import { LoadingSkeleton } from "../LoadingSkeleton";
-import { AppState } from "../AppState";
-import emptyState from "../assets/empty-box.png";
-import notFound from "../assets/pixeltrue-newsletter.png";
+import { useTodos } from './useTodos'
+import { useDarkMode } from './useDarkMode'
+import { TodoHeader } from '../TodoHeader'
+import { AppTitle } from '../AppTitle'
+import { TodoCounter } from '../TodoCounter'
+import { TodoSearch } from '../TodoSearch'
+import { TodoList } from '../TodoList'
+import { TodoItem } from '../TodoItem'
+import { TodoForm } from '../TodoForm'
+import { CreateTodoButton } from '../CreateTodoButton'
+import { Modal } from '../Modal'
+import { ModalToDelete } from '../ModalToDelete'
+import { ConfirmDelete } from '../ConfirmDelete'
+import { LoadingSkeleton } from '../LoadingSkeleton'
+import { AppState } from '../AppState'
+import emptyState from '../assets/empty-box.png'
+import notFound from '../assets/pixeltrue-newsletter.png'
 
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "../Theme";
-import { GlobalStyles } from "../GlobalStyles";
-import ToggleSwitch from "../ToggleSwitch";
+import { ThemeProvider } from 'styled-components'
+import { lightTheme, darkTheme } from '../Theme'
+import { GlobalStyles } from '../GlobalStyles'
+import ToggleSwitch from '../ToggleSwitch'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   const {
@@ -46,20 +47,36 @@ const App = () => {
     setTodoText,
     todoID,
     setTodoID,
-  } = useTodos();
+  } = useTodos()
 
-  const [action, setAction] = React.useState("");
-  const [theme, themeToggler] = useDarkMode();
+  const [action, setAction] = React.useState('')
+  const [theme, themeToggler] = useDarkMode()
+
+  let toastStyles = {}
+
+  if (theme === 'dark') {
+    toastStyles = {
+      borderRadius: '10px',
+      background: '#333',
+      color: '#fff',
+    }
+  } else if (theme === 'light') {
+    toastStyles = {
+      borderRadius: '10px',
+      background: '#fff',
+      color: '#333',
+    }
+  }
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles />
 
       <ToggleSwitch theme={theme} onToggle={themeToggler} />
 
-      <div className="app-container">
+      <div className='app-container'>
         <TodoHeader loading={loading}>
-          <AppTitle text="Todo-App" />
+          <AppTitle text='Todo-App' />
 
           <TodoCounter
             totalTodos={totalTodos}
@@ -76,17 +93,17 @@ const App = () => {
               .fill(1)
               .map((a, i) => <LoadingSkeleton key={i} />)}
           {!loading && !todos.length && (
-            <AppState state="empty" path={emptyState} />
+            <AppState state='empty' path={emptyState} />
           )}
           {!loading && todos.length > 0 && !searchedTodos.length && (
             <AppState
-              state="notFound"
+              state='notFound'
               path={notFound}
               searchValue={searchValue}
             />
           )}
 
-          {showList == true &&
+          {showList === true &&
             searchedTodos.map((todo) => (
               <TodoItem
                 key={todo.id}
@@ -101,8 +118,8 @@ const App = () => {
             ))}
         </TodoList>
 
-        {openModal == true && (
-          <Modal id="modal">
+        {openModal === true && (
+          <Modal id='modal'>
             <TodoForm
               action={action}
               todoID={todoID}
@@ -114,8 +131,8 @@ const App = () => {
           </Modal>
         )}
 
-        {openConfirmDialog == true && (
-          <ModalToDelete id="confirmDialog">
+        {openConfirmDialog === true && (
+          <ModalToDelete id='confirmDialog'>
             <ConfirmDelete
               text={todoText}
               todoID={todoID}
@@ -126,9 +143,20 @@ const App = () => {
         )}
 
         <CreateTodoButton setOpenModal={setOpenModal} setAction={setAction} />
+
+        <Toaster
+          position='bottom-center'
+          reverseOrder={true}
+          toastOptions={{
+            success: {
+              style: toastStyles,
+            },
+          }}
+        />
       </div>
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App
+

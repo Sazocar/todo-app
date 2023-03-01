@@ -7,32 +7,31 @@ const useDarkMode = () => {
   const setMode = (mode) => {
     localStorage.setItem('theme', mode)
     setTheme(mode)
-  }
 
-  const themeToggler = () => {
-    if (theme === 'light') {
-      setMode('dark')
+    if (mode === 'dark') {
       toast('Hello Darkness!', {
         icon: '👏',
         style: {
           borderRadius: '10px',
           background: '#333',
           color: '#fff',
-          fontFamily: 'Quattrocento Sans',
         },
       })
-    } else if (theme === 'dark') {
-      setMode('light')
+
+    } else if (mode === 'light') {
       toast('Hello Brightness!', {
         icon: '👏',
         style: {
           borderRadius: '10px',
           background: '#fff',
           color: '#333',
-          fontFamily: 'Quattrocento Sans',
         },
       })
     }
+  }
+
+  const themeToggler = () => {
+    theme === 'light' ? setMode('dark') : setMode('light')
   }
 
   React.useEffect(() => {
@@ -44,4 +43,5 @@ const useDarkMode = () => {
 }
 
 export { useDarkMode }
+
 

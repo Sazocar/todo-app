@@ -1,5 +1,4 @@
 import React from 'react'
-import { Toaster } from 'react-hot-toast'
 import './ToggleSwitch.css'
 
 const ToggleSwitch = ({ theme, onToggle }) => {
@@ -14,8 +13,6 @@ const ToggleSwitch = ({ theme, onToggle }) => {
         <input type='checkbox' onClick={onToggle} />
         <span className='slider round'></span>
       </label>
-
-      <Toaster position='bottom-center'/>
     </React.Fragment>
   )
 }
