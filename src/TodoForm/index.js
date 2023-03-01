@@ -35,7 +35,7 @@ const TodoForm = ({ action, todoID, addTodos, editTodo, setOpenModal, todoText }
 
   const editTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
-      if (event.key == "Enter") {
+      if (event.key === "Enter") {
         editTodo(todoID, todoValue);
         setOpenModal(false);
       }
@@ -45,13 +45,13 @@ const TodoForm = ({ action, todoID, addTodos, editTodo, setOpenModal, todoText }
   return (
     <form
       className="addTask-form"
-      onSubmit={action == "editTask" ? editTask : addTodoTask}
+      onSubmit={action === "editTask" ? editTask : addTodoTask}
     >
       <textarea
         className="addTask-textarea"
-        defaultValue={action == "editTask" ? todoText : ""}
+        defaultValue={action === "editTask" ? todoText : ""}
         onChange={onChangeValue}
-        onKeyDown={action == "editTask" ? editTodoTaskEnter : addTodoTaskEnter}
+        onKeyDown={action === "editTask" ? editTodoTaskEnter : addTodoTaskEnter}
         autoFocus
         onFocus={(e) =>
           e.currentTarget.setSelectionRange(
@@ -68,7 +68,7 @@ const TodoForm = ({ action, todoID, addTodos, editTodo, setOpenModal, todoText }
           type="submit"
           disabled={!todoValue.length}
         >
-          {action == "addTask" ? "Add Task" : "Save"}
+          {action === "addTask" ? "Add Task" : "Save"}
         </button>
         <button
           className="button button--secondary"

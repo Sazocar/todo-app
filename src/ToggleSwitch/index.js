@@ -8,7 +8,7 @@ const ToggleSwitch = ({ theme, onToggle }) => {
 
   return (
     <React.Fragment>
-      <img className='themeMode-icon' src={theme == 'light' ? sun : moon} />
+      <img className='themeMode-icon' src={theme === 'light' ? sun : moon} />
       <label className='switch'>
         <input type='checkbox' onClick={onToggle} />
         <span className='slider round'></span>
