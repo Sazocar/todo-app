@@ -1,47 +1,48 @@
-import React from "react";
+/* eslint-disable no-undef */
+import React from 'react'
 
 const useLocalStorage = (itemName, initialValue) => {
-  const [error, setError] = React.useState(false);
-  const [loading, setLoading] = React.useState(true);
-  const [item, setItem] = React.useState(initialValue);
+  const [error, setError] = React.useState(false)
+  const [loading, setLoading] = React.useState(true)
+  const [item, setItem] = React.useState(initialValue)
 
   React.useEffect(() => {
-    const localStorageItem = localStorage.getItem(itemName);
-    let parsedItem;
+    const localStorageItem = localStorage.getItem(itemName)
+    let parsedItem
 
     if (!localStorageItem) {
-      localStorage.setItem(itemName, JSON.stringify(initialValue));
-      parsedItem = initialValue;
+      localStorage.setItem(itemName, JSON.stringify(initialValue))
+      parsedItem = initialValue
     } else {
-      parsedItem = JSON.parse(localStorageItem);
+      parsedItem = JSON.parse(localStorageItem)
     }
 
-    setItem(parsedItem);
+    setItem(parsedItem)
 
     setTimeout(() => {
       try {
-        setLoading(false);
+        setLoading(false)
       } catch (error) {
-        setError(true);
+        setError(true)
       }
-    }, 2000);
-  }, []);
+    }, 2000)
+  }, [])
 
   const saveItem = (newItem) => {
     try {
-      localStorage.setItem(itemName, JSON.stringify(newItem));
-      setItem(newItem);
+      localStorage.setItem(itemName, JSON.stringify(newItem))
+      setItem(newItem)
     } catch (error) {
-      setError(true);
+      setError(true)
     }
-  };
+  }
 
   return {
     item,
     saveItem,
     loading,
-    error,
-  };
-};
+    error
+  }
+}
 
-export { useLocalStorage };
+export { useLocalStorage }

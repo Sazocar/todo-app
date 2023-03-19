@@ -46,7 +46,7 @@ const App = () => {
     setOpenConfirmDialog,
     setTodoText,
     todoID,
-    setTodoID,
+    setTodoID
   } = useTodos()
 
   const [action, setAction] = React.useState('')
@@ -58,13 +58,13 @@ const App = () => {
     toastStyles = {
       borderRadius: '10px',
       background: '#333',
-      color: '#fff',
+      color: '#fff'
     }
   } else if (theme === 'light') {
     toastStyles = {
       borderRadius: '10px',
       background: '#fff',
-      color: '#333',
+      color: '#333'
     }
   }
 
@@ -146,11 +146,11 @@ const App = () => {
 
         <Toaster
           position='bottom-center'
-          reverseOrder={true}
+          reverseOrder
           toastOptions={{
             success: {
-              style: toastStyles,
-            },
+              style: toastStyles
+            }
           }}
         />
       </div>
@@ -159,4 +159,3 @@ const App = () => {
 }
 
 export default App
-

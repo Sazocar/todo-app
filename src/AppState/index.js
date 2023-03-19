@@ -22,4 +22,3 @@ const AppState = ({ state, path, searchValue }) => {
 }
 
 export { AppState }
-

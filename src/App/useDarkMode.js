@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react'
 import toast from 'react-hot-toast'
 
@@ -14,18 +15,17 @@ const useDarkMode = () => {
         style: {
           borderRadius: '10px',
           background: '#333',
-          color: '#fff',
-        },
+          color: '#fff'
+        }
       })
-
     } else if (mode === 'light') {
       toast('Hello Brightness!', {
         icon: '👏',
         style: {
           borderRadius: '10px',
           background: '#fff',
-          color: '#333',
-        },
+          color: '#333'
+        }
       })
     }
   }
@@ -43,5 +43,3 @@ const useDarkMode = () => {
 }
 
 export { useDarkMode }
-
-

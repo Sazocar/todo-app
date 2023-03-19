@@ -14,4 +14,3 @@ const AppTitle = ({ text }) => {
 }
 
 export { AppTitle }
-

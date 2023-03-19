@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+/* eslint-disable no-tabs */
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 	body {
@@ -54,6 +55,6 @@ const GlobalStyles = createGlobalStyle`
 		text-decoration-color: ${({ theme }) => theme.text};
 	}
 
-`;
+`
 
-export { GlobalStyles };
+export { GlobalStyles }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const TodoHeader = ({ children, loading }) => {
   return (
@@ -7,7 +7,7 @@ const TodoHeader = ({ children, loading }) => {
         React.cloneElement(child, { loading })
       )}
     </header>
-  );
-};
+  )
+}
 
-export { TodoHeader };
+export { TodoHeader }

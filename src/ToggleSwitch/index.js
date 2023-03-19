@@ -7,15 +7,14 @@ const ToggleSwitch = ({ theme, onToggle }) => {
   const sun = 'https://img.icons8.com/ios-glyphs/30/000000/sun--v1.png'
 
   return (
-    <React.Fragment>
+    <>
       <img className='themeMode-icon' src={theme === 'light' ? sun : moon} />
       <label className='switch'>
         <input type='checkbox' onClick={onToggle} />
-        <span className='slider round'></span>
+        <span className='slider round' />
       </label>
-    </React.Fragment>
+    </>
   )
 }
 
 export default ToggleSwitch
-

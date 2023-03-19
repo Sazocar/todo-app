@@ -7,7 +7,7 @@ const useTodos = () => {
     item: todos,
     saveItem: saveTodos,
     loading,
-    error,
+    error
   } = useLocalStorage('TODOS_V2', [])
 
   const [searchValue, setSearchValue] = React.useState('')
@@ -52,8 +52,8 @@ const useTodos = () => {
 
     const obj = {
       id,
-      text: text,
-      completed: false,
+      text,
+      completed: false
     }
 
     newTodos.push(obj)
@@ -68,7 +68,7 @@ const useTodos = () => {
     saveTodos(newTodos)
 
     toast.success('Task edited successfully!', {
-      icon: '✏️',
+      icon: '✏️'
     })
   }
 
@@ -113,7 +113,7 @@ const useTodos = () => {
     showList,
     setShowList,
     todoID,
-    setTodoID,
+    setTodoID
   }
 }
 
@@ -122,4 +122,3 @@ const newTodoId = () => {
 }
 
 export { useTodos }
-
