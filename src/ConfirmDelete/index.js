@@ -2,7 +2,20 @@ import React from 'react'
 import './ConfirmDelete.css'
 
 const ConfirmDelete = ({ text, todoID, setOpenConfirmDialog, deleteTodo }) => {
-  const onCancel = () => {
+  document.onkeydown = function (evt) {
+    evt = evt || window.event
+    let isEscape = false
+    if ('key' in evt) {
+      isEscape = (evt.key === 'Escape' || evt.key === 'Esc')
+    } else {
+      isEscape = (evt.keyCode === 27)
+    }
+    if (isEscape) {
+      exitModal()
+    }
+  }
+
+  const exitModal = () => {
     setOpenConfirmDialog(false)
   }
 
@@ -22,7 +35,7 @@ const ConfirmDelete = ({ text, todoID, setOpenConfirmDialog, deleteTodo }) => {
         <button
           className='button button--secondary'
           type='button'
-          onClick={onCancel}
+          onClick={exitModal}
         >
           Cancel
         </button>

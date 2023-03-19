@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import './ModalToDelete.css';
 
 const ModalToDelete = (props) => {
   return ReactDOM.createPortal(
