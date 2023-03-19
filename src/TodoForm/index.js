@@ -15,37 +15,43 @@ const TodoForm = ({
     setTodoValue(event.target.value)
   }
 
-  const onCancel = () => {
+  const exitModal = () => {
     setOpenModal(false)
   }
 
   const addTodoTask = (event) => {
     event.preventDefault()
     addTodos(todoValue)
-    setOpenModal(false)
+    exitModal()
   }
 
   const addTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
       if (event.key === 'Enter') {
         addTodos(todoValue)
-        setOpenModal(false)
+        exitModal()
       }
+    }
+    if (event.keyCode === 27) {
+      exitModal()
     }
   }
 
   const editTask = (event) => {
     event.preventDefault()
     editTodo(todoID, todoValue)
-    setOpenModal(false)
+    exitModal()
   }
 
   const editTodoTaskEnter = (event) => {
     if (todoValue.length > 0) {
       if (event.key === 'Enter') {
         editTodo(todoID, todoValue)
-        setOpenModal(false)
+        exitModal()
       }
+    }
+    if (event.keyCode === 27) {
+      exitModal()
     }
   }
 
@@ -79,7 +85,7 @@ const TodoForm = ({
         <button
           className='button button--secondary'
           type='button'
-          onClick={onCancel}
+          onClick={exitModal}
         >
           Cancel
         </button>
