@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/todo-app/static/css/main.0f0bfe17.css",
+    "main.css": "/todo-app/static/css/main.34d55548.css",
     "main.js": "/todo-app/static/js/main.43ab5156.js",
     "static/media/pixeltrue-newsletter.png": "/todo-app/static/media/pixeltrue-newsletter.0c3dcf48fb7176048eea.png",
     "static/media/empty-box.png": "/todo-app/static/media/empty-box.b89d74a663b3fb202d4d.png",
     "index.html": "/todo-app/index.html",
-    "main.0f0bfe17.css.map": "/todo-app/static/css/main.0f0bfe17.css.map",
+    "main.34d55548.css.map": "/todo-app/static/css/main.34d55548.css.map",
     "main.43ab5156.js.map": "/todo-app/static/js/main.43ab5156.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f0bfe17.css",
+    "static/css/main.34d55548.css",
     "static/js/main.43ab5156.js"
   ]
 }
