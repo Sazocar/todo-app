@@ -9,6 +9,19 @@ const TodoForm = ({
   setOpenModal,
   todoText
 }) => {
+  document.onkeydown = function (evt) {
+    evt = evt || window.event
+    let isEscape = false
+    if ('key' in evt) {
+      isEscape = (evt.key === 'Escape' || evt.key === 'Esc')
+    } else {
+      isEscape = (evt.keyCode === 27)
+    }
+    if (isEscape) {
+      exitModal()
+    }
+  }
+
   const [todoValue, setTodoValue] = React.useState('')
 
   const onChangeValue = (event) => {
@@ -32,9 +45,6 @@ const TodoForm = ({
         exitModal()
       }
     }
-    if (event.keyCode === 27) {
-      exitModal()
-    }
   }
 
   const editTask = (event) => {
@@ -49,9 +59,6 @@ const TodoForm = ({
         editTodo(todoID, todoValue)
         exitModal()
       }
-    }
-    if (event.keyCode === 27) {
-      exitModal()
     }
   }
 
