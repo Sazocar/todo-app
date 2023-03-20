@@ -1,5 +1,5 @@
-import React from 'react'
 import './CreateTodoButton.css'
+import icon from '../assets/icons8-más-30.png'
 
 const CreateTodoButton = ({ setOpenModal, setAction }) => {
   const changeModal = () => {
@@ -10,7 +10,7 @@ const CreateTodoButton = ({ setOpenModal, setAction }) => {
   return (
     <div className='button-container'>
       <button className='input-button' onClick={changeModal}>
-        +
+        <img src={icon} alt='add-button-img' />
       </button>
     </div>
   )
